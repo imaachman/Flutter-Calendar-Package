@@ -22,8 +22,7 @@ class _DateSelectionWidgetState extends State<DateSelectionWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
+    return Container(
         child: StreamBuilder<List<Calendar>>(
           initialData: _calendarBloc.calendarList,
           stream: _calendarBloc.calendarListStream,
@@ -85,7 +84,6 @@ class _DateSelectionWidgetState extends State<DateSelectionWidget> {
             );
           },
         ),
-      ),
     );
   }
 }

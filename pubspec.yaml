@@ -1,8 +1,7 @@
 name: calendar_package
 description: A widget that can be added to any page that has 2 buttons which individually open a calendar page to select 2 different dates. Useful in apps to book flight/train tickets or book hotel rooms.
 version: 0.0.1
-author: Aachman Garg
-homepage: 
+homepage: https://github.com/imaachman/Flutter-Calendar-Package
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
