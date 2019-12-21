@@ -33,7 +33,6 @@ class _DateSelectionWidgetState extends State<DateSelectionWidget> {
                 height: MediaQuery.of(context).size.height / 8,
                 width: MediaQuery.of(context).size.width,
                 child: InkWell(
-                  splashColor: Colors.tealAccent[400],
                   onTap: () {
                     _calendarBloc.flag = true;
                     Navigator.push(
