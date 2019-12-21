@@ -281,7 +281,7 @@ class _CalendarPageState extends State<CalendarPage> {
     return Scaffold(
       appBar: new AppBar(
         title: Text('Selected Dates'),
-        backgroundColor: Colors.black,
+        backgroundColor: Theme.of(context).primaryColor,
         actions: <Widget>[
         StreamBuilder<List<Calendar>>(
             initialData: _calendarBloc.calendarList,

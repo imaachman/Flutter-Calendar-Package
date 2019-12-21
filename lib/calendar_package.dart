@@ -36,10 +36,10 @@ class _DateSelectionWidgetState extends State<DateSelectionWidget> {
             },
             child: Container(
               decoration: BoxDecoration(
+                color: Theme.of(context).primaryColor,
                   border: Border.all(
                       width: 4.0, color: Theme.of(context).accentColor)),
               width: MediaQuery.of(context).size.width,
-              color: Theme.of(context).primaryColor,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
