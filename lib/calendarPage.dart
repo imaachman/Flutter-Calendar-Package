@@ -265,29 +265,13 @@ class _CalendarPageState extends State<CalendarPage> {
         ),
         Flexible(
           child: GridView.count(
+            primary: false,
             crossAxisCount: 7,
             children: List.generate(42, (index) {
               return _date(index, day, month, year);
             }),
           ),
         ),
-        StreamBuilder<List<Calendar>>(
-            initialData: _calendarBloc.calendarList,
-            stream: _calendarBloc.calendarListStream,
-            builder: (context, snapshot) {
-              return Text(
-                _calendarBloc.flag == true
-                    ? _calendarBloc.months[snapshot.data[0].month] +
-                        ' ' +
-                        '${snapshot.data[0].day}' +
-                        ' to ' +
-                        _calendarBloc.months[snapshot.data[1].month] +
-                        ' ' +
-                        '${snapshot.data[1].day}'
-                    : 'select a check-out date',
-                style: TextStyle(fontSize: 18.0),
-              );
-            }),
       ],
     );
   }
@@ -296,10 +280,35 @@ class _CalendarPageState extends State<CalendarPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-        title: Text('Select Dates'),
+        title: Text('Selected Dates'),
         backgroundColor: Colors.black,
+        actions: <Widget>[
+        StreamBuilder<List<Calendar>>(
+            initialData: _calendarBloc.calendarList,
+            stream: _calendarBloc.calendarListStream,
+            builder: (context, snapshot) {
+              return Padding(
+                padding: const EdgeInsets.fromLTRB(0.0, 20.0, 10.0, 0.0),
+                child: Text(
+                  _calendarBloc.flag == true
+                      ? _calendarBloc.months[snapshot.data[0].month] +
+                          ' ' +
+                          '${snapshot.data[0].day}' +
+                          ' to ' +
+                          _calendarBloc.months[snapshot.data[1].month] +
+                          ' ' +
+                          '${snapshot.data[1].day}'
+                      : 'select a check-out date',
+                  style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+                ),
+              );
+            }),
+
+        ],
       ),
       body: PageView(
+        scrollDirection: Axis.vertical,
+        pageSnapping: false,
         children: <Widget>[
           _calendar(_day, _month, _year),
           _calendar(1, (_month + 1) % 12, (_year)),
