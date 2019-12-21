@@ -88,7 +88,8 @@ class _CalendarPageState extends State<CalendarPage> {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30.0),
-                  border: Border.all(width: 3.0),
+                  border: Border.all(
+                      width: 3.0, color: Theme.of(context).accentColor),
                   gradient: (index == snapshot.data[0].day &&
                               month == snapshot.data[0].month &&
                               year == snapshot.data[0].year) ||
@@ -99,8 +100,8 @@ class _CalendarPageState extends State<CalendarPage> {
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
                           colors: [
-                              Colors.lightBlue[400],
-                              Colors.tealAccent[400]
+                              Theme.of(context).primaryColor,
+                              Theme.of(context).accentColor
                             ])
                       : LinearGradient(colors: [Colors.white, Colors.white]),
                 ),
@@ -117,7 +118,8 @@ class _CalendarPageState extends State<CalendarPage> {
       child: Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30.0),
-            border: Border.all(width: 3.0),
+            border:
+                Border.all(width: 3.0, color: Theme.of(context).accentColor),
             color: Colors.blueGrey[200]),
         child: Center(
           child: Text('$index'),
