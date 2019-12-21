@@ -10,3 +10,8 @@
 ## [0.0.3] - 21-12-19
 
 * select 2 dates in same calendar page
+
+## [0.0.4] - 21-12-19
+
+* new - vertical scrolling
+* minor bug fix
