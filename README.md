@@ -46,8 +46,12 @@ class _HomePageState extends State<HomePage> {
             
             // day, month and year can be accessed by calling calendarList which :- index 0 is startDate and index 1 is endDate
 
-          print(_calendarBloc.calendarList[0].day); print(_calendarBloc.calendarList[0].month); print(_calendarBloc.calendarList[0].year);
-          print(_calendarBloc.calendarList[1].day); print(_calendarBloc.calendarList[1].month); print(_calendarBloc.calendarList[1].year);
+          print(_calendarBloc.calendarList[0].day);
+          print(_calendarBloc.calendarList[0].month); 
+          print(_calendarBloc.calendarList[0].year);
+          print(_calendarBloc.calendarList[1].day); 
+          print(_calendarBloc.calendarList[1].month); 
+          print(_calendarBloc.calendarList[1].year);
         },
         backgroundColor: Colors.red,
       ),
