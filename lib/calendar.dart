@@ -7,22 +7,20 @@ class Calendar {
   Calendar(this._day, this._month, this._year, this._weekDay);
 
   //setters
-  
-  set day(int day){
+
+  set day(int day) {
     this._day = day;
   }
 
-    set month(int month){
+  set month(int month) {
     this._month = month;
   }
 
-
-  set year(int year){
+  set year(int year) {
     this._year = year;
   }
 
-
-  set weekDay(int weekDay){
+  set weekDay(int weekDay) {
     this._weekDay = weekDay;
   }
 
@@ -32,5 +30,4 @@ class Calendar {
   int get month => this._month;
   int get year => this._year;
   int get weekDay => this._weekDay;
-
 }
