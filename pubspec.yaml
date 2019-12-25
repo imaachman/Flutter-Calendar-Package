@@ -1,6 +1,6 @@
 name: calendar_package
-description: A calendar widget useful for booking apps.
-version: 0.0.5
+description: A flutter package to add a calendar to your booking apps. It can select two different dates.
+version: 0.0.6
 homepage: https://github.com/imaachman/Flutter-Calendar-Package
 
 environment:

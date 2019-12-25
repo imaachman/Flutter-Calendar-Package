@@ -19,3 +19,8 @@
 ## [0.0.5] - 21-12-19
 
 * bug fix
+
+## [0.0.6] - 25-12-19
+
+* new - horizontal scrolling
+* new - bottom app bar with 2 buttons added

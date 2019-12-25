@@ -1,8 +1,8 @@
 # calendar_package
 
-A widget that can be added to any page that has 2 buttons which individually open a calendar page to select 2 different dates. Useful in apps to book flight/train tickets or book hotel rooms. Works on iOS, Android, Web, and MacOS.
+A widget that can be added like a container that which navigates to a calendar page that can select 2 different dates. Useful in apps to book flight/train tickets or book hotel rooms. Works on iOS, Android, Web, and MacOS.
 
-### Show me some :heart: and star this repo to support the project.
+### You can always star this repo to support the project.
 
 ### Screenshots
 <img src = "SS1.png", height = "300em" /> <img src = "SS1.png", height = "300em" />
@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.red,
       ),
       appBar: AppBar(),
-      body: DateSelectionWidget() //DateSelectionWidget() returns a container and should be used as one!
+      body: DateSelectionWidget() //DateSelectionWidget() returns a container and should be used like one!
     );
   }
 
