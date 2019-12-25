@@ -15,3 +15,7 @@
 
 * new - vertical scrolling
 * minor bug fix
+
+## [0.0.5] - 21-12-19
+
+* bug fix

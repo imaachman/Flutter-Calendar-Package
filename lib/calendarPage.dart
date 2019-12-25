@@ -278,37 +278,38 @@ class _CalendarPageState extends State<CalendarPage> {
 
   @override
   Widget build(BuildContext context) {
+    PageController _controller = PageController(initialPage: 0, keepPage: true);
+
     return Scaffold(
       appBar: new AppBar(
         title: Text('Selected Dates'),
         backgroundColor: Theme.of(context).primaryColor,
         actions: <Widget>[
-        StreamBuilder<List<Calendar>>(
-            initialData: _calendarBloc.calendarList,
-            stream: _calendarBloc.calendarListStream,
-            builder: (context, snapshot) {
-              return Padding(
-                padding: const EdgeInsets.fromLTRB(0.0, 20.0, 10.0, 0.0),
-                child: Text(
-                  _calendarBloc.flag == true
-                      ? _calendarBloc.months[snapshot.data[0].month] +
-                          ' ' +
-                          '${snapshot.data[0].day}' +
-                          ' to ' +
-                          _calendarBloc.months[snapshot.data[1].month] +
-                          ' ' +
-                          '${snapshot.data[1].day}'
-                      : 'select a check-out date',
-                  style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
-                ),
-              );
-            }),
-
+          StreamBuilder<List<Calendar>>(
+              initialData: _calendarBloc.calendarList,
+              stream: _calendarBloc.calendarListStream,
+              builder: (context, snapshot) {
+                return Padding(
+                  padding: const EdgeInsets.fromLTRB(0.0, 20.0, 10.0, 0.0),
+                  child: Text(
+                    _calendarBloc.flag == true
+                        ? _calendarBloc.months[snapshot.data[0].month] +
+                            ' ' +
+                            '${snapshot.data[0].day}' +
+                            ' - ' +
+                            _calendarBloc.months[snapshot.data[1].month] +
+                            ' ' +
+                            '${snapshot.data[1].day}'
+                        : 'select a check-out date',
+                    style:
+                        TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+                  ),
+                );
+              }),
         ],
       ),
       body: PageView(
-        scrollDirection: Axis.vertical,
-        pageSnapping: false,
+        controller: _controller,
         children: <Widget>[
           _calendar(_day, _month, _year),
           _calendar(1, (_month + 1) % 12, (_year)),
@@ -317,6 +318,37 @@ class _CalendarPageState extends State<CalendarPage> {
           _calendar(1, (_month + 4) % 12, (_year)),
           _calendar(1, (_month + 5) % 12, (_year)),
         ],
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            IconButton(
+              icon: Icon(Icons.arrow_back),
+              onPressed: () {
+                setState(() {
+                  if (_calendarBloc.calendarPageIndex > 0) {
+                    _calendarBloc.calendarPageIndex -= 1;
+                  }
+                });
+                _controller.animateToPage(_calendarBloc.calendarPageIndex,
+                    duration: Duration(milliseconds: 500), curve: Curves.ease);
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.arrow_forward),
+              onPressed: () {
+                setState(() {
+                  if (_calendarBloc.calendarPageIndex < 6) {
+                    _calendarBloc.calendarPageIndex += 1;
+                  }
+                });
+                _controller.animateToPage(_calendarBloc.calendarPageIndex,
+                    duration: Duration(milliseconds: 500), curve: Curves.ease);
+              },
+            )
+          ],
+        ),
       ),
     );
   }

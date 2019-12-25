@@ -33,6 +33,8 @@ class CalendarBloc {
     'December'
   ];
 
+  int calendarPageIndex = 0;
+
   bool flag;
 
   static final CalendarBloc _calendarBloc = CalendarBloc._internal();
